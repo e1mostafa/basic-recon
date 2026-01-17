@@ -28,11 +28,11 @@ def grab_banner(ip, port):
     except Exception as e:
         print(f"[!] An error occurred: {e}")
     finally:
-        # 5. Always close the socket
+       
         s.close()
 
 if __name__ == "__main__":
-    # Take user input
+
     target_ip = input("Enter Target IP: ")
     target_port = int(input("Enter Target Port: "))
     
