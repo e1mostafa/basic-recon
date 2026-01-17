@@ -4,16 +4,13 @@ def enumerate_dns(domain):
     print(f"\n[*] Enumerating DNS for: {domain}")
     print("-" * 40)
 
-    # List of records to query
-    record_types = ['A', 'MX', 'NS']
+    record_types = ['A', 'AAAA', 'MX', 'NS', 'TXT']
 
     for record in record_types:
         print(f"\n[+] {record} Records:")
         try:
-            # Perform the query
             answers = dns.resolver.resolve(domain, record)
             
-            # Print each answer found
             for answer in answers:
                 print(f"    {answer.to_text()}")
                 
@@ -21,7 +18,7 @@ def enumerate_dns(domain):
             print(f"    [!] No {record} record found.")
         except dns.resolver.NXDOMAIN:
             print(f"    [!] Domain '{domain}' does not exist.")
-            return # Stop if domain is invalid
+            return 
         except dns.resolver.Timeout:
             print("    [!] Request timed out.")
         except Exception as e:
