@@ -4,13 +4,22 @@ def enumerate_dns(domain):
     print(f"\n[*] Enumerating DNS for: {domain}")
     print("-" * 40)
 
+<<<<<<< HEAD
     record_types = ['A', 'AAAA', 'MX', 'NS', 'TXT']
+=======
+
+    record_types = ['A', 'MX', 'NS']
+>>>>>>> f620d2038e38f4726274296293476915be996d67
 
     for record in record_types:
         print(f"\n[+] {record} Records:")
         try:
             answers = dns.resolver.resolve(domain, record)
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> f620d2038e38f4726274296293476915be996d67
             for answer in answers:
                 print(f"    {answer.to_text()}")
                 
